@@ -5,20 +5,13 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+import org.apache.shiro.web.filter.authc.UserFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * <p>
- * 表单基础认证
- * </p>
- * @author 刘坤耀
- * @createTime 2017年5月10日 上午8:46:25
- */
-public class BaseFormAuthenticationFilter extends FormAuthenticationFilter {
-
-	private static final Logger logger = LoggerFactory.getLogger(BaseFormAuthenticationFilter.class);
+public class CustomerUserFilter extends UserFilter {
+	
+	private static final Logger logger = LoggerFactory.getLogger(CustomerUserFilter.class);
 	
 	// 原FormAuthenticationFilter的认证方法
 	@Override
@@ -41,5 +34,4 @@ public class BaseFormAuthenticationFilter extends FormAuthenticationFilter {
 		return super.onAccessDenied(request, response);
 
 	}
-
 }

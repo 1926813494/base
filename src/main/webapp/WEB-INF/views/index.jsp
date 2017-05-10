@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,5 +9,17 @@
 </head>
 <body>
 	<h2>首页</h2>
+	<a href="logout">退出</a>
+	<a>${user.username}</a>
+	<div>
+		<div>
+			<ul>			
+			<c:forEach items="${user.menus}" var="menu">
+			<li><a href="${menu.url}">${menu.name}</a></li>
+			</c:forEach>
+			</ul>
+		</div>
+		<div></div>
+	</div>
 </body>
 </html>

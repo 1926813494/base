@@ -1,5 +1,7 @@
 package com.wewills.base.user.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -22,6 +24,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getById(String id) {
 		return userMapper.getById(id);
+	}
+
+	@Override
+	public List<User> findAll() {
+		return userMapper.findAll();
 	}
 
 }

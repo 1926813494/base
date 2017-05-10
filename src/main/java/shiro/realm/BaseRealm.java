@@ -23,7 +23,11 @@ import com.wewills.base.sys.model.SysPermission;
 import com.wewills.base.sys.service.SysService;
 import com.wewills.base.user.model.User;
 import com.wewills.base.user.service.UserService;
-
+/**
+ * <p>自定义的realm</p>
+ * @author 刘坤耀
+ * @createTime 2017年5月10日 上午9:09:04
+ */
 public class BaseRealm extends AuthorizingRealm {
 	
 	private static final Logger logger = LoggerFactory.getLogger(BaseRealm.class);
@@ -39,7 +43,7 @@ public class BaseRealm extends AuthorizingRealm {
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		//获取用户名
 		String userCode = (String) token.getPrincipal();
-		logger.info("doGetAuthenticationInfo--->"+userCode+":"+token.getCredentials());
+		logger.info("doGetAuthenticationInfo-->{},{}",userCode,token.getCredentials());
 		//根据用户输入的userCode从数据库查询
 		User user = userService.getById(userCode);
 		if(user != null) {
@@ -68,9 +72,9 @@ public class BaseRealm extends AuthorizingRealm {
 		//从 principals获取主身份信息
 		//将getPrimaryPrincipal方法返回值转为真实身份类型（在上边的doGetAuthenticationInfo认证通过填充到SimpleAuthenticationInfo中身份类型）
 		User user = (User) principals.getPrimaryPrincipal();
-		logger.info("认证---doGetAuthorizationInfo--->"+user.getUsercode());
+		logger.info("认证---doGetAuthorizationInfo--->{}",user.getUsercode());
 		Set<String> percodes = sysService.findPercode(user.getId());
-		logger.info("拥有的权限："+percodes);
+		logger.info("拥有的权限：{}",percodes);
 		SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
 		simpleAuthorizationInfo.setStringPermissions(percodes);
 		return simpleAuthorizationInfo;

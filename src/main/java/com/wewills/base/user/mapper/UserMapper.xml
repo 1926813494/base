@@ -10,4 +10,8 @@
 		select * from sys_user where id = #{id}
 	</select>
 	
+	<select id="findAll" resultType="User">
+		select id,usercode, username,locked from sys_user
+	</select>
+	
 </mapper>

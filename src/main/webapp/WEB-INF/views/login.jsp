@@ -8,10 +8,10 @@
 </head>
 <body>
 	<form action="login" method="post">
-		账号：<input type="text" name="username" /> <br />
-		密码：<input type="password" name="password" /> <br />
-		验证码：<input type="text" name="randomcode" /> 
-		<img id="codeImg" src="code.jpg" width="56" height="20" onclick="refuseCode()" style="cursor:pointer;"/><br />
+		账号：<input type="text" name="username" value="zhangsan" /> <br />
+		密码：<input type="text" value="111111" name="password" /> <br />
+		验证码：<input type="text" name="loginVcode" /> 
+		<img id="codeImg" src="login_code.jpg" height="21" onclick="refuseCode()" style="cursor:pointer;"/><br />
 		<input type="submit" value="登录" />
 	</form>
 	<p style="color:red;">${tips}</p>
@@ -19,7 +19,7 @@
 <script type="text/javascript">
 function refuseCode() {
 	var codeImg = document.getElementById('codeImg');
-	codeImg.src = 'code.jpg?'+Math.random();
+	codeImg.src = 'login_code.jpg?'+Math.random();
 }
 </script>
 </html>
