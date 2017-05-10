@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- ch.qos.logback.core.ConsoleAppender 控制台输出 -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%-5level] %d{HH:mm:ss.SSS} [%thread] %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="fileerror"	class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<Prudent>true</Prudent>
+		<File>${catalina.home}/logs/base-error.log</File>
+		<encoder>
+			<pattern>[%-5p][%d{yyyyMMdd HH:mm:ss,SSS}][%C{1}:%L] %m%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${catalina.home}/logs/base-error.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+
+	<!-- 日志级别 -->
+	<root>
+		<level value="debug" />
+		<appender-ref ref="console" />
+		<appender-ref ref="fileerror"/>
+	</root>
+</configuration>  
