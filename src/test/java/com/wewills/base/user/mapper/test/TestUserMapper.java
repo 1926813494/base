@@ -1,7 +1,5 @@
 package com.wewills.base.user.mapper.test;
 
-import java.util.Date;
-
 import javax.annotation.Resource;
 
 import org.junit.Test;

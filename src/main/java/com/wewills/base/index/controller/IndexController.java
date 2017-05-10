@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.wewills.base.user.model.User;
 
-@Controller
+@Controller //标识该类是一个Controller
 public class IndexController {
 
 	@RequestMapping("/index")
