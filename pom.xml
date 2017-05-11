@@ -32,7 +32,13 @@
 		<kaptcha.version>2.3.2</kaptcha.version>
 		<junit.version>4.12</junit.version>
 	</properties>
-
+	
+	<description>
+		不同环境打包命令：
+		test:mvn -Ptest clean package
+		product:mvn -Pproduct clean package
+	</description>
+	
 	<dependencies>
 		<!-- spring -->
 		<dependency>
@@ -293,8 +299,11 @@
 								</resource>
 								<resource>
 									<directory>deploy/${deploy}</directory>
-									<!-- <targetPath>${basedir}/src/main/webapp/WEB-INF/classes</targetPath> -->
 									<targetPath>${basedir}/target/classes</targetPath>
+								</resource>
+								<resource>
+									<directory>deploy/${deploy}</directory>
+									<targetPath>${basedir}/src/main/webapp/WEB-INF/classes</targetPath>									
 								</resource>
 							</resources>
 						</configuration>
