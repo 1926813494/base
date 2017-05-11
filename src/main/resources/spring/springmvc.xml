@@ -9,7 +9,7 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
     <!-- 全局异常处理 -->
-    <bean class="com.wewills.base.common.exception.GlobalException">
+    <bean class="com.wewills.base.common.exception.GlobalExceptionResolver">
     	<property name="unauthorizedUrl" value="/unauth"></property>
     	<property name="exceptionUrl" value="/unknownError"></property>
     </bean>

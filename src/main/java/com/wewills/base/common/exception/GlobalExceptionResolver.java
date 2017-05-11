@@ -11,15 +11,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * <p>
- * 全局异常类
+ * 全局异常处理器
  * </p>
  * 
  * @author 刘坤耀
  * @createTime 2017年5月10日 下午2:28:48
  */
-public class GlobalException implements HandlerExceptionResolver {
+public class GlobalExceptionResolver implements HandlerExceptionResolver {
 
-	private static final Logger logger = LoggerFactory.getLogger(GlobalException.class);
+	private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionResolver.class);
 
 	private String unauthorizedUrl;
 
