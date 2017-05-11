@@ -4,17 +4,33 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<!-- 在mybatis-config.xml中增加了分页plugin的配置 -->
+	
 	<!-- 配置 mybatis的sqlSession工厂bean -->
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property> <!-- 引用applicationContextn.xml中的数据源 -->
 		<!-- 加载mybatis的配置文件 -->
-		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property> 
+		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
 	</bean>
 	
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<!-- 原生mybatis配置 -->
+	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"></property>
+		扫描mybatis的mapper包
+		<property name="basePackage" value="com.wewills.**.mapper"></property>
+	</bean> -->
+	
+	<!-- 通用Mapper的配置，在mybatis的基础上进行扩展的 -->
+	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"></property>		
 		<!-- 扫描mybatis的mapper包 -->
 		<property name="basePackage" value="com.wewills.**.mapper"></property>
+		<property name="properties">
+			<value>
+				mappers=tk.mybatis.mapper.common.Mapper
+			</value>
+		</property>
 	</bean>
 	
 </beans>

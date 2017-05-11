@@ -8,4 +8,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<package name="com.wewills.base.sys.model"/>
 		<package name="com.wewills.base.role.model"/>
 	</typeAliases>
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageHelper">
+			<property name="dialect" value="mysql"/>
+		</plugin>
+	</plugins>
 </configuration>

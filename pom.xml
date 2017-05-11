@@ -20,6 +20,8 @@
 		<!-- mybatis -->
 		<mybatis.version>3.2.8</mybatis.version>
 		<spring.mybatis.version>1.2.3</spring.mybatis.version>
+		<mapper.version>3.3.4</mapper.version>
+		<pagehelper.version>4.1.6</pagehelper.version>
 		<!-- datasource -->
 		<mysql.version>5.1.39</mysql.version>
 		<druid.version>1.0.18</druid.version>
@@ -129,6 +131,17 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>${mybatis.version}</version>
+		</dependency>
+		<!-- mybatis mapper -->
+		<dependency>
+    		<groupId>tk.mybatis</groupId>
+    		<artifactId>mapper</artifactId>
+    		<version>${mapper.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.github.pagehelper</groupId>
+		    <artifactId>pagehelper</artifactId>
+		    <version>${pagehelper.version}</version>
 		</dependency>
 		<!-- end mybatis -->
 
