@@ -7,6 +7,7 @@
 	<packaging>war</packaging>
 
 	<properties>
+		<war.name>base</war.name>
 		<jdk.version>1.8</jdk.version>
 		<spring.version>4.2.9.RELEASE</spring.version>
 		<aspectj.version>1.8.8</aspectj.version>
@@ -259,7 +260,7 @@
 	</profiles>
 
 	<build>
-		<finalName>base</finalName>
+		<finalName>${war.name}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -301,10 +302,10 @@
 									<directory>deploy/${deploy}</directory>
 									<targetPath>${basedir}/target/classes</targetPath>
 								</resource>
-								<resource>
+								<!-- <resource>
 									<directory>deploy/${deploy}</directory>
-									<targetPath>${basedir}/src/main/webapp/WEB-INF/classes</targetPath>									
-								</resource>
+									<targetPath>${basedir}/target/${war.name}/WEB-INF/classes</targetPath>									
+								</resource> -->
 							</resources>
 						</configuration>
 					</execution>

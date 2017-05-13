@@ -38,7 +38,7 @@
         <property name="filters" value="{druid.filters}" />
 	</bean>
 	
-	<import resource="classpath:spring/applicationContext-mybatis.xml"/>
+	<import resource="classpath:mybatis/applicationContext-mybatis.xml"/>
 	<import resource="classpath:spring/applicationContext-service.xml"/>
 	<import resource="classpath:shiro/applicationContext-shiro.xml"/>
 </beans>
