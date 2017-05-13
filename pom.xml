@@ -7,7 +7,6 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<war.name>base</war.name>
 		<jdk.version>1.8</jdk.version>
 		<spring.version>4.2.9.RELEASE</spring.version>
 		<aspectj.version>1.8.8</aspectj.version>
@@ -260,7 +259,7 @@
 	</profiles>
 
 	<build>
-		<finalName>${war.name}</finalName>
+		<finalName>base</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
